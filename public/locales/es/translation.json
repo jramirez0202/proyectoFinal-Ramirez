@@ -1,0 +1,14 @@
+{ 
+	"navbar": {
+		"links":{
+			"appName": "ServiceCraft",
+			"home": "Inicio",
+			"services": "Servicios",
+			"about": "Nosotros",
+			"contact": "Contacto"
+		} 
+},
+	"main": {
+		"header": "Bienvenido a la app"
+	}
+}
