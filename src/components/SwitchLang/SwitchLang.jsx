@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import usaFlag from '../assets/images/navbarLogo/flag.svg'
-import spainFlag from '../assets/images/navbarLogo/spain.svg'
+import usaFlag from '../../assets/images/navbarLogo/flag.svg'
+import spainFlag from '../../assets/images/navbarLogo/spain.svg'
 
 export const SwitchLang = () => {
   const { i18n } = useTranslation();

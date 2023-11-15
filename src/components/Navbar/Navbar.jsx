@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { useState } from 'react';
-import { SwitchLang } from './SwitchLang.jsx'
-import CartWidget from './CartWidget.jsx';
-import logo from '../assets/images/navbarLogo/profile.jpeg'
+import { SwitchLang } from '../SwitchLang/SwitchLang'
+import CartWidget from '../CartWidget/CartWidget.jsx';
+import logo from '../../assets/images/navbarLogo/profile.jpeg';
 
 
 const Navbar = () => {

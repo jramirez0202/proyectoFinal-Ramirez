@@ -1,4 +1,4 @@
-import cart from '../assets/images/navbarLogo/bag.png';
+import cart from '../../assets/images/navbarLogo/bag.png';
 
 export const CartWidget = () => {
   return (
