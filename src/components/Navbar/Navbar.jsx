@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { SwitchLang } from '../SwitchLang/SwitchLang'
 import CartWidget from '../CartWidget/CartWidget.jsx';
 import logo from '../../assets/images/navbarLogo/profile.jpeg';
+import {Link, NavLink, useNavigate} from "react-router-dom"
 
 
 const Navbar = () => {
@@ -14,12 +15,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600 z-50">
+    <nav className="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600 z-40">
       <div className="max-w-screen-xl mx-auto p-4 flex flex-col md:flex-row items-center md:justify-between">
-          <a href="#" className="flex items-center">
+        <Link to='/'>
+        <div className="flex items-center">
             <img src={logo} className="h-8" alt="ServiceCraft Logo"/>
             <span className="text-2xl font-semibold whitespace-nowrap dark:text-white">{t('navbar.links.appName')}</span>
-          </a>
+        </div>
+        </Link>
         <div className="flex ml-auto space-x-3 rtl:space-x-reverse">
           <button data-collapse-toggle="navbar-sticky" type="button" className="md:hidden p-2 w-10 h-10 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded={isDropdownOpen} onClick={toggleDropdown}>
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -28,11 +31,17 @@ const Navbar = () => {
           </button>
         </div>
         <div className="hidden md:flex md:items-center md:justify-center md:space-x-8 flex-grow">
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.home')}</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.about')}</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.services')}</a>
-          <a href="#" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.contact')}</a>
+          {/* <NavLink to="/" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.home')}</NavLink>
+          <NavLink to="/about" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.about')}</NavLink>
+          <NavLink to="/services" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.services')}</NavLink>
+          <NavLink to="/contact" className="text-gray-900 hover:text-blue-700 dark:text-white dark:hover:text-blue-500">{t('navbar.links.contact')}</NavLink> */}
+          <NavLink to="/category/ropa" className ={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>{t('navbar.links.clothing')}</NavLink>
+          <NavLink to="/category/electronica" className ={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>{t('navbar.links.electronic')}</NavLink>
+          <NavLink to="/category/deporte" className ={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>{t('navbar.links.sport')}</NavLink>
         </div>
+
+
+
         <div className="flex ml-auto md:space-x-10">
             <CartWidget/>
             <SwitchLang/>

@@ -5,10 +5,47 @@
 			"home": "Inicio",
 			"services": "Servicios",
 			"about": "Nosotros",
-			"contact": "Contacto"
+			"contact": "Contacto",
+			"category": "Categoria",
+			"clothing": "Ropa",
+			"electronic": "Electronica",
+			"sport": "Deportes"
 		} 
 },
 	"main": {
 		"header": "Bienvenido a la app"
+	},
+	"itemCard":{
+		"card":{
+			"price": "Precio:",
+			"name": "Nombre:",
+			"category": "Categoria:",
+			"addButton" : "Agregar",
+			"detailsButton" : "Detalles",
+			"productDescription": {
+				"product_1": "Instrumento musical para bandas de rock",
+				"product_2": "Balón redondo para que ruede de manera circular",
+				"product_3": "Camisa ligera para salir a pasear",
+				"product_4": "Balón retro firmado de la Copa Mundial 2002",
+				"product_5": "Camisa roja de mujer",
+				"product_6": "Guitarra modelo GHJ-2003"
+			}		,
+			"productName": {
+				"p1": "Guitarra Electica",
+				"p2": "Pelota de futbol",
+				"p3": "Camisa deportiva",
+				"p4": "Balon para Futbol sala",
+				"p5": "Camisa Ligera",
+				"p6": "Guitarra GHJ-2003"
+			},
+			"categoryName":{
+				"c1": "Electrónica",
+				"c2": "Deportes",
+				"c3": "Ropa",
+				"c4": "Deportes",
+				"c5": "Ropa",
+				"c6": "Electrónica"
+			}			
+		}
 	}
 }

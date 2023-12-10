@@ -5,10 +5,48 @@
 			"home": "Home",
 			"services": "Services",
 			"about": "About",
-			"contact": "Contact"
+			"contact": "Contact",
+			"category": "Category:",
+			"clothing": "Clothes",
+			"electronic": "Electronics",
+			"sport": "Sports"
 		} 
 },
 	"main": {
 		"header": "Welcome to the app"
+	},
+	"itemCard":{
+		"card":{
+			"price": "Price:",
+			"name": "Name:",
+			"category": "Category:",
+			"addButton" : "Add to cart",
+			"detailsButton" : "More info",
+			"productDescription":{
+				"product_1": "Musical instrument for rock bands",
+				"product_2": "Round ball to roll in a circular manner",
+				"product_3": "Light shirt for going out for a walk",
+				"product_4": "2002 World Cup retro signed ball",
+				"product_5": "Women's red shirt",
+				"product_6": "Guitar model GHJ-2003"
+			},
+			"productName": {
+				"p1": "Electric Guitar",
+				"p2": "Soccer Ball Fevernova",
+				"p3": "Sport Shirt",
+				"p4": "Indoor Football 4",
+				"p5": "Light Shirt",
+				"p6": "GHJ-2003 Guitar"
+			},
+			"categoryName":{
+				"c1": "Electronic",
+				"c2": "Sports",
+				"c3": "Clothing",
+				"c4": "Sports",
+				"c5": "Clothing",
+				"c6": "Electronic"
+			}
+
+		}
 	}
 }

@@ -1,1 +1,2 @@
 alinear el btn lang con el menu hamburger
+Meter el listado de productos en una container para centrarlo (se ve pegado a la izquierda)
