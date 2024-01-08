@@ -3,41 +3,41 @@ import { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
-import { CartContext } from '../Context/CartContext'
-
+import { CartContext } from "../Context/CartContext";
 
 const ItemCard = ({ name, price, category, img, id, stock }) => {
-  const [quantityAdded, setQuantityAdded] = useState(0)
+  const [quantityAdded, setQuantityAdded] = useState(0);
   const { addItem } = useContext(CartContext);
-  
+  const { t } = useTranslation();
+  const [showDetailsButton, setShowDetailsButton] = useState(true);
 
   const handleOnAdd = (quantity) => {
-    setQuantityAdded(quantity)
+    setQuantityAdded(quantity);
     addItem({ id, name, price, category, img, stock }, quantity);
-  }
+    setShowDetailsButton(false);
+  };
 
-  const { t } = useTranslation();
   return (
     <div className="w-full mx-auto max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="flex justify-center text-center">
         <h5 className="text-2xl font-semibold  mt-2 tracking-tight text-gray-900 dark:text-white">
-          {t(`itemCard.card.productName.p${id}`) || name}
+          {name}
         </h5>
       </div>
-      <figure>
-        <img className="p-8 rounded-t-lg" src={img} alt={name} />
-      </figure>
+      <Link to={`/item/${id}`}>
+        <figure>
+          <img className="p-8 rounded-t-lg" src={img} alt={img} />
+        </figure>
+      </Link>
+
 
       <div className="mt-2.5 mb-5 ml-5">
         <span className="text-xl font-bold text-gray-900 dark:text-white">
-          {" "}
           {t("itemCard.card.price")} ${price}
         </span>
         <br />
         <span className="text-xl font-bold text-gray-900 dark:text-white">
-          {" "}
-          {t("itemCard.card.category")}{" "}
-          {t(`itemCard.card.categoryName.c${id}`) || category}
+          {t("itemCard.card.category")} {category}
         </span>
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -92,7 +92,25 @@ const ItemCard = ({ name, price, category, img, id, stock }) => {
           </span>
         </div>
         <div className="flex flex-col items-center justify-center mt-4">
-      <Link to={`/item/${id}`} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <div className="flex justify-center items-center">
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              {quantityAdded > 0 ? (
+                <Link
+                  to="/cart"
+                  className="my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  {t("itemCard.card.endBuy")}
+                </Link>
+              ) : (
+                <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
+              )}
+            </span>
+          </div>
+    {showDetailsButton && (
+      <Link
+        to={`/item/${id}`}
+        className="inline-flex ml-auto mx-4 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
         {t("itemCard.card.detailsButton")}
         <svg
           className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
@@ -110,18 +128,8 @@ const ItemCard = ({ name, price, category, img, id, stock }) => {
           />
         </svg>
       </Link>
-      <footer className="flex justify-center items-center">
-        <span className="text-3xl font-bold text-gray-900 dark:text-white">
-          {quantityAdded > 0 ? (
-            <Link to="/cart" className="my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Terminar Compra
-            </Link>
-          ) : (
-            <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
-          )}
-        </span>
-      </footer>
-    </div>
+    )}
+        </div>
       </div>
     </div>
   );
@@ -129,7 +137,7 @@ const ItemCard = ({ name, price, category, img, id, stock }) => {
 
 ItemCard.propTypes = {
   onAdd: PropTypes.func,
-  id: PropTypes.number,
+  id: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
   stock: PropTypes.number,
