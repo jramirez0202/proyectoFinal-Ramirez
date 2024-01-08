@@ -15,6 +15,19 @@
 	"main": {
 		"header": "Welcome to the app"
 	},
+	"cart": {
+		"quantity":"Quantity",
+		"totalItems":"Total items",
+		"subtotal":"Subtotal",
+		"totalPrice":"Total",
+		"emptyCartMassage": "You don't have items in your cart",
+		"emptyCartButton": "Empty Cart",
+		"homeButton": "Products"
+	},
+	"cardItem": {
+		"quantity":"Quantity:",
+		"subtotal":"Subtotal:"
+	},
 	"itemCard":{
 		"card":{
 			"price": "Price:",
@@ -22,6 +35,7 @@
 			"category": "Category:",
 			"addButton" : "Add to cart",
 			"detailsButton" : "More info",
+			"endBuy": "Complete purchase",
 			"productDescription":{
 				"product_1": "Musical instrument for rock bands",
 				"product_2": "Round ball to roll in a circular manner",

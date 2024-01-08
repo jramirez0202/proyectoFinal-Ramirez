@@ -11,10 +11,9 @@ const ItemList = ({ products }) => {
         {products.map(prod => (
           <ItemCard
             key={prod.id}
-            name={t(`itemCard.card.productName.p${prod.id}`) || prod.name}
-            description={t(`itemCard.card.productDescription.product_${prod.id}`) || prod.description}
-            category={t(`itemCard.card.categoryName.c${prod.id}`) || prod.category}
-            {...prod}
+            name={prod.name}
+            description={prod.description}
+            category={prod.category}{...prod}
           />
         ))}
       </div>

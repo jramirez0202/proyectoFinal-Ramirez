@@ -15,13 +15,27 @@
 	"main": {
 		"header": "Bienvenido a la app"
 	},
+	"cart":{
+		"quantity": "Cantidad",
+		"totalItems": "Total de productos:",
+		"subtotal": "Subtotal:",
+		"totalPrice": "Total:",
+		"emptyCartMassage": "No tienes productos en tu carrito",
+		"emptyCartButton": "Vaciar Carrito",
+		"homeButton": "Productos"
+	},
+	"cardItem": {
+		"quantity":"Cantidad:",
+		"subtotal":"Subtotal:"
+	},
 	"itemCard":{
 		"card":{
-			"price": "Precio:",
+			"price":"Precio:",
 			"name": "Nombre:",
 			"category": "Categoria:",
 			"addButton" : "Agregar",
 			"detailsButton" : "Detalles",
+			"endBuy": "Finalizar compra",
 			"productDescription": {
 				"product_1": "Instrumento musical para bandas de rock",
 				"product_2": "Balón redondo para que ruede de manera circular",

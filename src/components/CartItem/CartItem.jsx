@@ -1,8 +1,13 @@
 import { useContext } from "react"
 import CartContext from "../Context/CartContext"
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import { FaTrash } from "react-icons/fa";
+
 
 const CartItem = ({ product }) => {
+  const { t } = useTranslation();
+  console.log(product)
   const {removeItem} = useContext(CartContext)
   if (!product) {
     return null;
@@ -16,18 +21,13 @@ const CartItem = ({ product }) => {
     style={{ width: '100px', height: '100px' }}
     className="col-span-1 border-2 p-2 border-white rounded-2xl"
   />
-  <p className="text-sm col-span-1">Cantidad: {product.quantity}</p>
-  <p className="text-sm col-span-1">Subtotal: ${(product.quantity * product.price).toFixed(2)}</p>
+  <p className="text-sm col-span-1">{t("cardItem.quantity")} {product.quantity}</p>
+  <p className="text-sm col-span-1">{t("cardItem.subtotal")} ${(product.quantity * product.price).toFixed(2)}</p>
   <button
-    onClick={() => removeItem(product.id)}
-    className="col-span-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-  >
-    Eliminar
+    onClick={() => removeItem(product.id)}>
+    <FaTrash/>
   </button>
 </div>
-
-
-
   );
   
   
