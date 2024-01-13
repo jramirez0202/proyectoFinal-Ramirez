@@ -10,8 +10,13 @@
 			"clothing": "Clothes",
 			"electronic": "Electronics",
 			"sport": "Sports"
-		} 
-},
+		}
+	},
+	"banner":{
+		"title": "¡Amazing Discounts!",
+		"subtitle": "Diferent Sales Every Day",
+		"message": "Explore Now"
+	},
 	"main": {
 		"header": "Welcome to the app"
 	},
@@ -58,7 +63,6 @@
 			"phone": "Phone",
 			"completePayment": "Complete Payment"
 		},
-	
 		"orderId": "Your order ID is:",
 		"messageBuy": "Thanks for your purchase",
 		"messageShipping": "We have shipped your order"

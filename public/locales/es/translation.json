@@ -12,6 +12,11 @@
 			"sport": "Deportes"
 		} 
 },
+"banner":{
+	"title": "¡Increíbles Descuentos!",
+	"subtitle": "Ofertas Diferentes Todos Los Dias!",
+	"message": "Explorar Ahora"
+},
 	"main": {
 		"header": "Bienvenido a la app"
 	},

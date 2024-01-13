@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import {getDocs, collection, query, where} from "firebase/firestore";
 import {db} from "../../config/Firebase"
+import { Banner } from "../Banner/Banner"
 
 export default function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -32,9 +33,11 @@ export default function ItemListContainer() {
       });
   }, [categoryId]); // Agregué categoryId como dependencia para que el efecto se ejecute cuando cambie.
   
+  const showBanner= window.location.pathname === '/' 
 
   return (
     <div>
+      {showBanner && <Banner/>}
       <ItemList products={products}/>
     </div>
   );
