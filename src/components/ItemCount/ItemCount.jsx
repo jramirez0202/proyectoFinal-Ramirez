@@ -1,17 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd, cart, productId }) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(initial);
 
+  useEffect(() => {
+    // Actualiza la cantidad cuando se cambia el valor inicial externamente
+    setQuantity(initial);
+  }, [initial]);
+
   const increaseItem = () => {
-    if (quantity < stock) {
+    const totalQuantity = quantity + getQuantityInCart(cart, productId);
+
+    if (totalQuantity < stock) {
       setQuantity(quantity + 1);
-    } else if (quantity === stock) {
-      window.alert(`el stock es hasta ${stock}`);
+    } else if (totalQuantity === stock) {
+      window.alert(`El stock es hasta ${stock}`);
     }
   };
 
@@ -19,8 +26,17 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     } else if (quantity <= 1) {
-      window.alert(`No se puede disminuir mas`);
+      window.alert(`No se puede disminuir más`);
     }
+  };
+
+  const getQuantityInCart = (cart, productId) => {
+    if (!cart || !cart.find) {
+      return 0;
+    }
+
+    const cartItem = cart.find((item) => item.id === productId);
+    return cartItem ? cartItem.quantity : 0;
   };
 
   return (
@@ -42,7 +58,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
       </div>
       <button
         className="my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        onClick={() => onAdd((quantity))}
+        onClick={() => onAdd(quantity)}
       >
         {t("itemCard.card.addButton")}
       </button>
@@ -53,8 +69,9 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 ItemCount.propTypes = {
   initial: PropTypes.number,
   stock: PropTypes.number,
-  quantity: PropTypes.number,
   onAdd: PropTypes.func,
+  cart: PropTypes.array,
+  productId: PropTypes.string,
 };
 
 export default ItemCount;

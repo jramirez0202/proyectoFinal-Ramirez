@@ -4,12 +4,12 @@ import {getStorage, ref, uploadBytes} from "firebase/storage";
 import {v4} from "uuid"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCaVFmgX-iOpWgFJTDUJfCqV6dumzS4DIw",
-  authDomain: "servicecraft-335d6.firebaseapp.com",
-  projectId: "servicecraft-335d6",
-  storageBucket: "servicecraft-335d6.appspot.com",
-  messagingSenderId: "805999201719",
-  appId: "1:805999201719:web:d814cfbf14515c0c986c32"
+  apiKey: import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_REACT_APP_FIREBASE_APP_ID
 };
 
 // Initialize Firebase

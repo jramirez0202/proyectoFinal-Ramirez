@@ -19,14 +19,14 @@ export const SwitchLang = () => {
     const iconEn = (
       <img className='h-3.5 w-3.5 rounded-full me-2' src={spainFlag} alt="sp-flag" />
     );
-    return i18n.language === 'en' ? iconEn : iconEs;
+    return i18n.language === 'en' ? iconEs : iconEn;
   };
 
   return (
 <div className="text font-bold">
   <button type="button" onClick={toggleLanguage} className="flex items-center">
     {getIcon()}
-    <span className="ml-2">{i18n.language === 'en' ? 'ES' : 'EN'}</span>
+    <span className="ml-2">{i18n.language === 'en' ? 'EN' : 'ES'}</span>
   </button>
 </div>
 
