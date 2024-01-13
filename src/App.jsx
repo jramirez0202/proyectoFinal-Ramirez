@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { CartProvider } from "./components/Context/CartContext.jsx"
 import  Cart  from "./components/Cart/Cart.jsx"
 import UpdateImages from "./components/UpdateImages/UpdateImages.jsx"
+import Checkout from "./components/Checkout/Checkout.jsx"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route path='/item/:itemId' element= {<ItemDetailContainer/>}/>
               <Route path='/category/:categoryId' element= {<ItemListContainer/>}/>
               <Route path='/cart' element= {<Cart/>} />
+              <Route path='/checkout' element= {<Checkout/>} /> 
               <Route path='/admin' element= {<UpdateImages/>} /> 
               <Route path='*' element ={<h1>No Found Page</h1>}/>    
             </Routes>
